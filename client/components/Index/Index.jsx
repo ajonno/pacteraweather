@@ -5,9 +5,29 @@ import FlatButton from 'material-ui/FlatButton';
 import WeatherTable from 'components/WeatherTable/WeatherTable';
 import Cities from 'components/Cities/Cities';
 
+
+import Azure from 'client/api/azure';
+
+
 class IndexComponent extends Component {
 
   render() {
+
+    //just for testing
+      Azure.getWeather('sydney');
+            // .then(function (temp) {
+            //     that.setState({
+            //         location: location,
+            //         temp: temp,
+            //         isLoading: false
+            //     });
+            // }, function (errorMessage) {
+            //     that.setState({isLoading: false});
+            //     alert(errorMessage);
+            // });
+
+
+
     if (this.props.items.length === 0) {
       return (
         <p ref="empty">Index is empty.</p>
