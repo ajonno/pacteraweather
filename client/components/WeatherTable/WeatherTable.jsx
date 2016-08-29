@@ -2,31 +2,75 @@ import React from 'react';
 import {Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow, TableRowColumn}
   from 'material-ui/Table';
 import TextField from 'material-ui/TextField';
+import Sugar from 'sugar';
+
 
 const styles = {
   propContainer: {
-    width: 200,
+    width: 140,
     overflow: 'hidden',
     margin: '20px auto 0',
   },
   propToggleHeader: {
     margin: '20px auto 10px',
   },
+  weatherItem: {
+    width: '70px'
+  },
+  weatherValueColumn: {
+    width: '70px'
+  }
 };
+
+
+const data = {
+  "payload": [
+    {
+      "field": "city",
+      "val": "Perth"
+    },
+    {
+      "field": "updatedTime",
+      "val": "Monday 07:18 AM"
+    },
+    {
+      "field": "weather",
+      "val": "Clouds"
+    },
+    {
+      "field": "temperature",
+      "val": "17.27"
+    },
+    {
+      "field": "wind",
+      "val": "3.6"
+    }
+  ]
+}
 
 const tableData = [
   {
-    name: 'John Smith',
+    name: 'City',
     status: 'Employed',
   },
   {
-    name: 'Randal White',
+    name: 'Updated time',
     status: 'Unemployed',
   },
   {
-    name: 'Stephanie Sanders',
+    name: 'Weather',
+    status: 'Employed',
+  },
+    {
+    name: 'Temperature',
+    status: 'Employed',
+  },
+      {
+    name: 'Wind',
     status: 'Employed',
   }
+
+
 ];
 
 export default class WeatherTable extends React.Component {
@@ -56,8 +100,8 @@ export default class WeatherTable extends React.Component {
             displaySelectAll={this.state.showCheckboxes}
             adjustForCheckbox={this.state.showCheckboxes}>
             <TableRow>
-              <TableHeaderColumn tooltip="The Name">Name</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Status">Status</TableHeaderColumn>
+              <TableHeaderColumn style={styles.weatherItem} tooltip="Weather item">Item</TableHeaderColumn>
+              <TableHeaderColumn style={styles.weatherValueColumn} tooltip="Current value">Value</TableHeaderColumn>
             </TableRow>
           </TableHeader>
 
@@ -65,16 +109,15 @@ export default class WeatherTable extends React.Component {
             displayRowCheckbox={this.state.showCheckboxes}
             stripedRows={this.state.stripedRows}
           >
-            {tableData.map( (row, index) => (
-
+            {data.payload.map( (row, index) => (
+  
               <TableRow key={index} selected={row.selected}>
-                // <TableRowColumn>{row.name}</TableRowColumn>
-                // <TableRowColumn>{row.status}</TableRowColumn>
+                <TableRowColumn style={styles.weatherItem}>{row.field}</TableRowColumn>
+                <TableRowColumn style={styles.weatherValueColumn}>{row.val}</TableRowColumn>
               </TableRow>
 
-
             ))}
-            
+
           </TableBody>
 
         </Table>

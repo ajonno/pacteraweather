@@ -20,7 +20,6 @@ export default class Cities extends Component {
   }
 
   handleChange(event, index, value){
-      console.log("SDFSDFGDSGDSFGDSFGDSFSDFSDFG");
     this.setState({value});
   } 
 
