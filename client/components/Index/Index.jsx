@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
 
+import WeatherTable from 'components/WeatherTable/WeatherTable';
+import Cities from 'components/Cities/Cities';
+
 class IndexComponent extends Component {
+
   render() {
     if (this.props.items.length === 0) {
       return (
@@ -18,11 +22,12 @@ class IndexComponent extends Component {
         />
 
         <h2>Pactera Weather</h2>
-        <ul ref="indexList" className="index-list">
-          {this.props.items.map((item, index) => {
-            return (<li key={index}>item {item}</li>);
-          })}
-        </ul>
+
+        <Cities/>
+        
+        <WeatherTable />
+      
+      
       </section>
     );
   }

@@ -1,0 +1,1 @@
+const Table = require('./Table.jsx').default;
