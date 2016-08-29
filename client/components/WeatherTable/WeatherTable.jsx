@@ -48,30 +48,6 @@ const data = {
   ]
 }
 
-const tableData = [
-  {
-    name: 'City',
-    status: 'Employed',
-  },
-  {
-    name: 'Updated time',
-    status: 'Unemployed',
-  },
-  {
-    name: 'Weather',
-    status: 'Employed',
-  },
-    {
-    name: 'Temperature',
-    status: 'Employed',
-  },
-      {
-    name: 'Wind',
-    status: 'Employed',
-  }
-
-
-];
 
 export default class WeatherTable extends React.Component {
 
