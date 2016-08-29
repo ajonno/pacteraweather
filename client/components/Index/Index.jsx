@@ -6,7 +6,11 @@ import WeatherTable from 'components/WeatherTable/WeatherTable';
 import Cities from 'components/Cities/Cities';
 
 
-import Azure from 'client/api/azure';
+import Azure from 'api/azure';
+var axios = require('axios');
+
+//generate the base url (to use as a template)
+const AZURE_MICROSERVICE_URL = 'https://pactera-microservices.azurewebsites.net/api/GetWeatherWebhook?code=t82idxpid0ouv50nq2ofajorkk0rlppylw4mtifgqelcpiudihuqixcsybs3xkjmgi5evwvcxr';
 
 
 class IndexComponent extends Component {
@@ -14,7 +18,7 @@ class IndexComponent extends Component {
   render() {
 
     //just for testing
-      Azure.getWeather('sydney');
+    //  Azure.getWeather('sydney');
             // .then(function (temp) {
             //     that.setState({
             //         location: location,
@@ -26,8 +30,7 @@ class IndexComponent extends Component {
             //     alert(errorMessage);
             // });
 
-
-
+ 
     if (this.props.items.length === 0) {
       return (
         <p ref="empty">Index is empty.</p>

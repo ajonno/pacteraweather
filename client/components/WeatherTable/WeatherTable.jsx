@@ -48,6 +48,11 @@ const data = {
   ]
 }
 
+import Azure from 'api/azure';
+var axios = require('axios');
+
+//generate the base url (to use as a template)
+const AZURE_MICROSERVICE_URL = 'https://pactera-microservices.azurewebsites.net/api/GetWeatherWebhook?code=t82idxpid0ouv50nq2ofajorkk0rlppylw4mtifgqelcpiudihuqixcsybs3xkjmgi5evwvcxr';
 
 export default class WeatherTable extends React.Component {
 
@@ -62,6 +67,23 @@ export default class WeatherTable extends React.Component {
       selectable: false,
       height: '300px',
     };
+  }
+
+  componentDidMount(){
+        var config = {
+            headers: {'content-type': 'application/json'}
+        };
+
+        var that = this;
+
+        axios.post(AZURE_MICROSERVICE_URL, { city: "sydney"}, config)
+            .then(function(res){
+                console.log(JSON.stringify(res.data.payload));
+                  data.payload = res.data.payload;
+                  that.forceUpdate();
+        }, function (res) {
+            throw new Error(res);
+        });  
   }
 
   render() {
@@ -101,3 +123,5 @@ export default class WeatherTable extends React.Component {
     );
   }
 }
+
+
