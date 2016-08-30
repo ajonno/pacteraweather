@@ -25,15 +25,12 @@ export default class Cities extends Component {
   }
 
   handleChange(event, index, value){
-    console.log("FIRING val changed. you chose " + value);
-    //this.setState({value});
 
     var that = this;
     azure.getWeather(value).then(function (response) {
                 that.setState({
                     responseData: response
                 });
-               //console.log(JSON.stringify(response));
            }, function (errorMessage) {
                 //that.setState({isLoading: false});
                 alert(errorMessage);
@@ -41,9 +38,6 @@ export default class Cities extends Component {
   } 
 
   render() {
-    //console.log("firing render() in Cities ...");
-    //console.log("responseData = " + JSON.stringify(this.state.responseData));
-
     return (
       <div>
         <SelectField value={this.state.value} onChange={this.handleChange}>

@@ -34,8 +34,6 @@ export default class WeatherTable extends React.Component {
   constructor(props) {
     super(props);
 
-    console.log("props in WeatherTable CTOR = " + JSON.stringify(this.props));
-
     this.state = {
       showCheckboxes: false,
       fixedHeader: true,
@@ -47,14 +45,9 @@ export default class WeatherTable extends React.Component {
   }
 
   componentDidMount(){
-      console.log("componentDidMount in WeatherTable..");
-          console.log("props in WeatherTable componentDidMount = " + JSON.stringify(this.props));
-
         var config = {
             headers: {'content-type': 'application/json'}
         };
-
-        console.log("props in weather = " + this.props.responseData);
 
         var that = this;    //needed because 'this' isnt in scope 
                             //in the promise callback below. 
@@ -64,33 +57,11 @@ export default class WeatherTable extends React.Component {
     }
 
     componentWillUpdate(nextProps, nextState){
-      // perform any preparations for an upcoming update
-      console.log("componentWillUpdate in WeatherTable");
-      console.log("nextProps = " + JSON.stringify(nextProps));
       data.payload = nextProps.responseData;
-      //this.setState({responseData : nextProps});
     }
 
     render() {
-        console.log("render in WeatherTable. this.state = " + JSON.stringify(this.state));
-        //console.log("responseData = " + JSON.stringify(responseData));
-      console.log("nextProps in RENDER() = " + JSON.stringify(this.nextProps));
-
         var {isLoading} = this.state;
-
-        
-
-        function renderTableRows() {
-            // if (isLoading){
-            // } else if (responseData) {
-
-            //   return responseData.map( (row, index) => (
-            //     <TableRow key={index} selected={row.selected}>
-            //       <TableRowColumn style={styles.weatherItem}>{row.field}</TableRowColumn>
-            //       <TableRowColumn style={styles.weatherValueColumn}>{row.val}</TableRowColumn>
-            //     </TableRow>
-            // ))} 
-        }
 
         return (
           <div>
@@ -112,7 +83,6 @@ export default class WeatherTable extends React.Component {
                 displayRowCheckbox={this.state.showCheckboxes}
                 stripedRows={this.state.stripedRows}
               >
-                //{renderTableRows()}
               
                 {data.payload.map( (row, index) => (
                   <TableRow key={index} selected={row.selected}>
