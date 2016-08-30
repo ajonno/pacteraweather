@@ -13,9 +13,10 @@ injectTapEventPlugin();
 
 const App = () => (
   <MuiThemeProvider>
-    <Index items={[1,2,3]} />
+    <Index items={[1,2,3]}/>
   </MuiThemeProvider>
 );
+
 
 
 render(

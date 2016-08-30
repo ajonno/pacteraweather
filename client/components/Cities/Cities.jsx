@@ -4,11 +4,6 @@ import MenuItem from 'material-ui/MenuItem';
 var azure = require('api/azure');
 import WeatherTable from 'components/WeatherTable/WeatherTable';
 
-const styles = {
-  customWidth: {
-    width: 150,
-  },
-};
 /**
  * `SelectField` is implemented as a controlled component, with the current selection set through the `value` property.
  * The `SelectField` can be disabled with the `disabled` property.
@@ -26,13 +21,14 @@ export default class Cities extends Component {
 
   handleChange(event, index, value){
 
+    this.setState({value: value});
+
     var that = this;
     azure.getWeather(value).then(function (response) {
                 that.setState({
                     responseData: response
                 });
            }, function (errorMessage) {
-                //that.setState({isLoading: false});
                 alert(errorMessage);
     });
   } 

@@ -4,15 +4,11 @@ import {Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow,
 import TextField from 'material-ui/TextField';
 var azure = require('api/azure');
 
-
 const styles = {
   propContainer: {
-    width: 140,
-    overflow: 'hidden',
-    margin: '20px auto 0',
-  },
-  propToggleHeader: {
-    margin: '20px auto 10px',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center'
   },
   weatherItem: {
     width: '70px'
@@ -65,7 +61,8 @@ export default class WeatherTable extends React.Component {
 
         return (
           <div>
-            <Table style={{width: 600}}
+
+            <Table style={{width: 500}}
               height={this.state.height}
               fixedHeader={this.state.fixedHeader}
               selectable={this.state.selectable}
