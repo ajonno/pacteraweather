@@ -36,10 +36,11 @@ Getting the current weather for either of the 3 nominated cities is simple. Just
 * client/server communication is via **https**, however no functionality was included to secure the Azure microservice app key. This could be added via a mechanism such as JSON Web Token (JWT).
 * there are only a couple of string literals, for temperature, in the micro service app purely for this sample - in a prod app I would add more logic to cater for scenario such as either degrees C, or Fahrenheit etc. and build the string accordingly
 * the web app would not need modification, if more cities were to be made available. To do this - it's simply a matter of modifying the web service call being made from the server side app (to receieve additional cities). The additional cities would be added to the existing (outgoing) payload array. Mods on the server side would be minimal.
+* Error handling in this test app is light, I would certainly add more rigorous and "defensive" error handling for a production app
 * Being a test app minimal focus was placed on the UI/UX and more could be done here to improve look and feel.
 
 
-### UML Activity Diagram
+### Simple UML Activity Diagram
  
 ![](/wiki-images/UML-Activity.png)
 
