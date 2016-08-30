@@ -5,6 +5,17 @@ The solution was built using the following:
 * client side web/SPA app using **React**. React was chosen given it's ability to separate a web app into components, from which you can compose as needed. React allows for a more declarative style of development and also nicely encapsulates both UI (DOM) and behavior within each component (based on the app design). Such a design paradigm (for web front end development) more easily allows and facilities large scale development.     
 * server side microservice using **Azure Functions**
 
+### **Source Code**
+**Web project
+**
+
+* https://github.com/ajonno/pacteraweather.git
+
+**Server side project
+**
+
+* https://github.com/ajonno/pactera-microservices.git
+
 ### **User Guide**
 
 **Web Project**
