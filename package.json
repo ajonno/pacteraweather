@@ -35,6 +35,7 @@
   "homepage": "https://github.com/ajonno/pacteraweather",
   "dependencies": {
     "axios": "0.14.0",
+    "azure-mobile-apps-client": "2.0.0-beta5",
     "babel-polyfill": "6.3.14",
     "babel-runtime": "6.3.19",
     "bootstrap": "3.3.7",
