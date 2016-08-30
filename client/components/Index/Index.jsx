@@ -14,12 +14,23 @@ export default class IndexComponent extends Component {
 
     return (
       <div>
-        <AppBar style={{backgroundColor: "darkblue"}}
-           iconElementLeft={<img src="client/images/pactera-logo.png" alt="MDN"/>}
-        />
-        <h2>Weather Forecast</h2>
-        <Cities/>
+        <div>       
+            <AppBar style={{backgroundColor: "darkblue"}}
+              iconElementLeft={<img src="client/images/pactera-logo.png" alt="MDN"/>}
+            />
+        </div>
+        <div style={{display: 'flex', justifyContent: 'center', width: '100%'}}>
+            <div>  
+              <h2>Weather Forecast</h2>
+            </div>
+        </div>
+        <div style={{display: 'flex', justifyContent: 'center'}}>
+            <div>
+              <Cities/>
+            </div>
+        </div>
      </div>
+
     );
   }
 }

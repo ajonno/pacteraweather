@@ -8,6 +8,13 @@ import WeatherTable from 'components/WeatherTable/WeatherTable';
  * `SelectField` is implemented as a controlled component, with the current selection set through the `value` property.
  * The `SelectField` can be disabled with the `disabled` property.
  */
+
+const styles = {
+  listStyle: {
+    color: 'red' 
+  }
+}
+
 export default class Cities extends Component {
 
     constructor(props) {
@@ -47,7 +54,7 @@ export default class Cities extends Component {
 
         return (
           <div>
-            <SelectField value={this.state.value} onChange={this.handleChange}>
+            <SelectField value={this.state.value} onChange={this.handleChange} style={styles.container}>
               <MenuItem value={0} primaryText="Select A City" />
               <MenuItem value={"Melbourne"} primaryText="Melbourne" />
               <MenuItem value={"Sydney"} primaryText="Sydney" />
