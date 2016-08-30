@@ -24,11 +24,11 @@ The solution was built using the following:
  
 Getting the current weather for either of the 3 nominated cities is simple. Just choose a city from the drop-down box on the web page and wait for the response to be returned from the server. The results will be displayed in a grid, as per the following screen shot.
 
-![](/images/ui.png)
+![](/wiki-images/ui.png)
 
 ### **High Level Solution Diagram**
 
-![](/images/high-level.png)
+![](/wiki-images/high-level.png)
 
 ### **Assumptions/Notes**
 
@@ -41,4 +41,4 @@ Getting the current weather for either of the 3 nominated cities is simple. Just
 
 ### UML Activity Diagram
  
-![](/images/UML-Activity.png)
+![](/wiki-images/UML-Activity.png)
