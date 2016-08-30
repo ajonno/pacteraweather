@@ -19,8 +19,6 @@ const App = () => (
   </MuiThemeProvider>
 );
 
-
-
 render(
     <App />, 
     document.getElementById('js-main')
