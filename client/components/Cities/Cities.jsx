@@ -10,42 +10,52 @@ import WeatherTable from 'components/WeatherTable/WeatherTable';
  */
 export default class Cities extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: 0,
-      responseData: []
-    };
-     this.handleChange = this.handleChange.bind(this);
-  }
+    constructor(props) {
+      super(props);
+      this.state = {
+        value: 0,
+        responseData: []
+      };
+      this.handleChange = this.handleChange.bind(this);
+    }
 
-  handleChange(event, index, value){
+    handleChange(event, index, value){
+      this.setState({value: value});
+      if (value != 0) {
+        var that = this;
+        azure.getWeather(value).then(function (response) {
+            that.setState({
+                responseData: response
+            });
+        }, function (errorMessage) {
+              alert(errorMessage);
+        });
+      }
+    } 
 
-    this.setState({value: value});
+    render() {
+        var {responseData} = this.state;
+        console.log("responseData = " + responseData);
+        function confirmSelection() {
 
-    var that = this;
-    azure.getWeather(value).then(function (response) {
-                that.setState({
-                    responseData: response
-                });
-           }, function (errorMessage) {
-                alert(errorMessage);
-    });
-  } 
+            if (responseData === ""){
+                return<h3 className="text-center">Fetching weather...</h3>;
+            } else  {
+              return  <WeatherTable responseData={responseData}/>
+            } 
+        }
 
-  render() {
-    return (
-      <div>
-        <SelectField value={this.state.value} onChange={this.handleChange}>
-          <MenuItem value={0} primaryText="Select A City" />
-          <MenuItem value={"Melbourne"} primaryText="Melbourne" />
-          <MenuItem value={"Sydney"} primaryText="Sydney" />
-          <MenuItem value={"Wollongong"} primaryText="Wollongong" />
-        </SelectField>
+        return (
+          <div>
+            <SelectField value={this.state.value} onChange={this.handleChange}>
+              <MenuItem value={0} primaryText="Select A City" />
+              <MenuItem value={"Melbourne"} primaryText="Melbourne" />
+              <MenuItem value={"Sydney"} primaryText="Sydney" />
+              <MenuItem value={"Wollongong"} primaryText="Wollongong" />
+            </SelectField>
 
-        <WeatherTable responseData={this.state.responseData}/>
-
-      </div>
-    );
-  }
+            {confirmSelection()}
+          </div>
+      );
+    }
 }
