@@ -38,11 +38,3 @@ export default class IndexComponent extends Component {
 IndexComponent.defaultProps = {
   items: []
 };
-
-// const styles = {
-//   container:{
-//     display: 'flex',
-//     flexDirection: 'column',
-//     justifyContent: 'center'
-//   }
-// };
